@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Chat</title>
+</head>
+<body>
+    <h2>Message Board</h2>
+
+    <!-- message form -->
+    <form action="/add_message" method="POST">
+
+        <textarea
+            name="text"
+            placeholder="Write message..."
+            rows="4"
+            cols="40"></textarea>
+
+        <br><br>
+
+        <button type="submit">
+            Send
+        </button>
+
+    </form>
+
+    <hr>
+
+    <!-- all messages -->
+    {% for message in messages %}
+
+        <div>
+
+            {% if message[2] %}
+
+        <img src="{{message[2]}}" width = "50px">
+
+        {% endif %}
+
+            <b>{{ message[0] }}</b>
+
+            <p>{{ message[1] }}</p>
+
+            <hr>
+
+        </div>
+
+    {% endfor %}
+
+    <a href="/profile">
+        Return to dashboard
+    </a>
+
+</body>
+</html>
